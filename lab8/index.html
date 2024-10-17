@@ -79,28 +79,6 @@
       'url': 'mapbox://iamwfx.6nowkujs'
     });
 
-    map.addLayer({
-      'id':'povertyLevel',
-      'type':'fill',
-      'source':'censusLayer',
-      'source-layer':'nyc_blck_grp_2020_wcensus_dro-4db43i',
-      'paint':{
-        'fill-color':['step',['get','AMR5E002'],'##edf8e9',300,'#f5ef42'], 
-        'fill-opacity': ['step',['get','AMR5E002'],0,300,0.9]
-      }
-    });
-
-    map.addLayer({
-    'id':'flood_zones',
-    'type':'fill',
-    'source':'sandy_layer',
-    'source-layer':'Hurricane_Sandy_inundation_Zo-azbxs6',
-    'paint':{
-      'fill-color':'#00158f',
-      'fill-opacity': 0.5
-     }
-  })
-
     map.addSource('sandyLayer',{
       'type':'vector',
       'url': 'mapbox://iamwfx.bpjzmy2b'
@@ -110,6 +88,18 @@
       'type':'vector',
       'url': 'mapbox://iamwfx.28ut4nij'
     });
+
+    map.addLayer({
+      'id':'povertyLevel',
+      'type':'fill',
+      'source':'censusLayer',
+      'source-layer':'nyc_blck_grp_2020_wcensus_dro-4db43i',
+      'paint':{
+        'fill-color':['step',['get','AMR5E002'],'#edf8e9',300,'#f5ef42'], 
+        'fill-opacity': ['step',['get','AMR5E002'],0,300,0.9]
+      }
+    });
+
 
     // add a new layer with your polygons
 
@@ -122,7 +112,7 @@
         'fill-color':'red',
         'fill-opacity': 0.5
       }
-    })
+    });
 
     map.addLayer({
       'id':'floodZones',
@@ -134,11 +124,13 @@
         'fill-opacity': 0.5
       }
     });
-  });
 
 map.setLayoutProperty('floodZones',"visibility", "visible");
 map.setLayoutProperty('povertyLevel',"visibility", "visible");
 map.setLayoutProperty('nychaBuildings',"visibility", "visible");
+
+  
+
 
 var layerList = document.getElementById("menu");
 var checkboxes = layerList.getElementsByTagName("input");
@@ -154,11 +146,14 @@ function switchLayer(layer) {
     }
 }
 
+
 for (var i = 0; i < checkboxes.length; i++) {
   checkboxes[i].onclick = switchLayer;
 }
+});
   // Within a script, you comment using two backslashes.
   </script>
 </body>
 
 </html>
+
