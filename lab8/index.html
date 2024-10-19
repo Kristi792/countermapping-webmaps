@@ -198,17 +198,6 @@
         'fill-opacity': 0.5
       }
     });
-    
-    map.addLayer({
-      'id':'nychaBuildings',
-      'type':'fill',
-      'source':'nychaLayer',
-      'source-layer':'Map_of_NYCHA_Developments-7i6vok',
-      'paint':{
-        'fill-color':'red',
-        'fill-opacity': 0.5
-      }
-    });
 
     map.addLayer({
       'id':'povertyLevel',
@@ -221,8 +210,16 @@
       }
     });
 
-
-
+        map.addLayer({
+      'id':'nychaBuildings',
+      'type':'fill',
+      'source':'nychaLayer',
+      'source-layer':'Map_of_NYCHA_Developments-7i6vok',
+      'paint':{
+        'fill-color':'red',
+        'fill-opacity': 0.5
+      }
+    });
 
 map.setLayoutProperty('floodZones',"visibility", "visible");
 map.setLayoutProperty('povertyLevel',"visibility", "visible");
