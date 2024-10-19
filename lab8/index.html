@@ -89,20 +89,116 @@
       'url': 'mapbox://iamwfx.28ut4nij'
     });
 
+    map.addSource('floodplain2020_100yr', {
+      'type': 'vector',
+      'url': 'mapbox://iamwfx.bbchggzx'
+    });
+
+    map.addSource('floodplain2020_500yr', {
+      'type': 'vector',
+      'url': 'mapbox://iamwfx.05ogder8'
+    });
+
+    map.addSource('floodplain2050_100yr', {
+      'type': 'vector',
+      'url': 'mapbox://iamwfx.crrx4301'
+    });
+
+    map.addSource('floodplain2050_500yr', {
+      'type': 'vector',
+      'url': 'mapbox://iamwfx.4ydk0450'
+    });
+
+    map.addSource('floodplain2100_100yr', {
+      'type': 'vector',
+      'url': 'mapbox://iamwfx.dxjuiivg'
+    });
+
+    map.addSource('floodplain2100_500yr', {
+      'type': 'vector',
+      'url': 'mapbox://iamwfx.8thgevrt'
+    });
+
+    
     map.addLayer({
-      'id':'povertyLevel',
-      'type':'fill',
-      'source':'censusLayer',
-      'source-layer':'nyc_blck_grp_2020_wcensus_dro-4db43i',
-      'paint':{
-        'fill-color':['step',['get','AMR5E002'],'#edf8e9',300,'#f5ef42'], 
-        'fill-opacity': ['step',['get','AMR5E002'],0,300,0.9]
+      'id': 'floodplain2020_100yr',
+      'type': 'fill',
+      'source': 'floodplain2020_100yr',
+      'source-layer': 'FutureFloodplains_2020_100yr-du18hr',
+      'paint': {
+        'fill-color': '#6baed6',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'floodplain2020_500yr',
+      'type': 'fill',
+      'source': 'floodplain2020_500yr',
+      'source-layer': 'FutureFloodplains_2020_500yr-0x77x0',
+      'paint': {
+        'fill-color': '#6baed6',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'floodplain2050_100yr',
+      'type': 'fill',
+      'source': 'floodplain2050_100yr',
+      'source-layer': 'FutureFloodplains_2050_100yr-6nepei',
+      'paint': {
+        'fill-color': '#6baed6',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'floodplain2050_500yr',
+      'type': 'fill',
+      'source': 'floodplain2050_500yr',
+      'source-layer': 'FutureFloodplains_2050_500yr-a4444h',
+      'paint': {
+        'fill-color': '#6baed6',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'floodplain2100_100yr',
+      'type': 'fill',
+      'source': 'floodplain2100_100yr',
+      'source-layer': 'FutureFloodplains_2100_100yr-cqwfrw',
+      'paint': {
+        'fill-color': '#6baed6',
+        'fill-opacity': 0.3
+      }
+    });
+
+    map.addLayer({
+      'id': 'floodplain2100_500yr',
+      'type': 'fill',
+      'source': 'floodplain2100_500yr',
+      'source-layer': 'FutureFloodplains_2100_500yr-27ghpw',
+      'paint': {
+        'fill-color': '#6baed6',
+        'fill-opacity': 0.3
       }
     });
 
 
     // add a new layer with your polygons
-
+        map.addLayer({
+      'id':'floodZones',
+      'type':'fill',
+      'source':'sandyLayer',
+      'source-layer':'Sandy_Inundation_Zone-4qcajo',
+      'paint':{
+        'fill-color':'#00158f',
+        'fill-opacity': 0.5
+      }
+    });
+    
     map.addLayer({
       'id':'nychaBuildings',
       'type':'fill',
@@ -115,21 +211,29 @@
     });
 
     map.addLayer({
-      'id':'floodZones',
+      'id':'povertyLevel',
       'type':'fill',
-      'source':'sandyLayer',
-      'source-layer':'Sandy_Inundation_Zone-4qcajo',
+      'source':'censusLayer',
+      'source-layer':'nyc_blck_grp_2020_wcensus_dro-4db43i',
       'paint':{
-        'fill-color':'#00158f',
-        'fill-opacity': 0.5
+        'fill-color':['step',['get','AMR5E002'],'#edf8e9',300,'#f5ef42'], 
+        'fill-opacity': ['step',['get','AMR5E002'],0,300,0.9]
       }
     });
+
+
+
 
 map.setLayoutProperty('floodZones',"visibility", "visible");
 map.setLayoutProperty('povertyLevel',"visibility", "visible");
 map.setLayoutProperty('nychaBuildings',"visibility", "visible");
 
-  
+map.setLayoutProperty('floodplain2020_100yr', 'visibility', 'visible');
+map.setLayoutProperty('floodplain2020_500yr', 'visibility', 'visible');
+map.setLayoutProperty('floodplain2050_100yr', 'visibility', 'visible');
+map.setLayoutProperty('floodplain2050_500yr', 'visibility', 'visible');
+map.setLayoutProperty('floodplain2100_100yr', 'visibility', 'visible');
+map.setLayoutProperty('floodplain2100_500yr', 'visibility', 'visible');  
 
 
 var layerList = document.getElementById("menu");
@@ -145,7 +249,6 @@ function switchLayer(layer) {
       map.setLayoutProperty(clickedLayersLabel, "visibility", "visible")
     }
 }
-
 
 for (var i = 0; i < checkboxes.length; i++) {
   checkboxes[i].onclick = switchLayer;
