@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#Xun{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80%; 
+} 
+#toolbar{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 20%; 
+  left: 80%;
+} 
+#title{
+  margin-left:3%;
+  margin-right: 3%;
+}
+#restName{
+  margin-left:3%;
+  margin-right: 3%;
+}
+#restText{
+  margin-left:3%;
+  margin-right: 3%;
+}
+#legend {
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend-text {
+  font-size: 14px;
+  margin-right: 10px; 
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+}
+
+
+
