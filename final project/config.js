@@ -113,7 +113,7 @@ var config = {
             id: 'layer3 medianhouseholdincome',
             alignment: 'right',
             hidden: false,
-            title: 'Income Disparities and EV Infrastructure Accessibility',
+            title: 'Median Household Income Disparities and EV Infrastructure Accessibility',
             image: 'https://files.americanexperiment.org/wp-content/uploads/2018/05/Wealthy-Electric-Car-owners.png',
             imagedescription:'Image Retrived From <a href="https://www.americanexperiment.org/electric-cars-are-mostly-for-wealthy-people-and-youre-subsidizing-their-purchase/" target="_blank">Electric Cars Are Mostly for Wealthy People - Center of the American Experiment</a>',
             description1: 'Median household income is one of the most important indicators for assessing the accessibility of electric vehicle infrastructure. By analyzing the relationship between income level and the distribution of charging stations, we can identify communities that may face underserved services. This map uses a one-mile buffer analysis to show coverage in all communities, aiming to support addressing possible inequalities in the distribution of charging stations.',
